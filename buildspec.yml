@@ -5,15 +5,15 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - echo $AWS_DEFAULT_REGION
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin public.ecr.aws/m9h3e3e8/harish_docker_image
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 453793953964.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG public.ecr.aws/m9h3e3e8/harish_docker_image/$IMAGE_REPO_NAME:$IMAGE_TAG      
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG 453793953964.dkr.ecr.ap-south-1.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push public.ecr.aws/m9h3e3e8/harish_docker_image/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push 453793953964.dkr.ecr.ap-south-1.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG

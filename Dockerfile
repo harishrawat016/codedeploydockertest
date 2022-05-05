@@ -16,6 +16,7 @@ RUN /bin/pip-${PYTHON_VERSION} install pipenv
 RUN pip install boto3
 RUN pip show boto3
 RUN yum install -y jq
+RUN pip install ansible
 
 # Download terraform for linux
 ENV TERRAFORM_VERSION=1.1.0
